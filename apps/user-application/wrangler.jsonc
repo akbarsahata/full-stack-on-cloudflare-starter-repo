@@ -14,4 +14,11 @@
   "observability": {
     "enabled": true,
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_id": "a1d2e926-dd9b-4882-bde5-96210b0b8ad3",
+      "experimental_remote": true
+    }
+  ],
 }
