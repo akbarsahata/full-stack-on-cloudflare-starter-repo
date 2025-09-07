@@ -1,13 +1,20 @@
-import { getDb } from "@/db/database";
+import { Db } from "@/db/database";
 import { links } from "@/drizzle-out/schema";
-import { CreateLinkSchemaType, destinationsSchema, DestinationsSchemaType, linkSchema, LinkSchemaType } from "@/zod/links";
+import {
+  CreateLinkSchemaType,
+  destinationsSchema,
+  DestinationsSchemaType,
+  linkSchema,
+  LinkSchemaType,
+} from "@/zod/links";
 import { and, desc, eq, gt } from "drizzle-orm";
 import { nanoid } from "nanoid";
 
-export async function createLink(
-  data: CreateLinkSchemaType & { accountId: string }
-): Promise<LinkSchemaType["linkId"]> {
-  const db = getDb();
+export async function createLink(arg: {
+  db: Db;
+  data: CreateLinkSchemaType & { accountId: string };
+}): Promise<LinkSchemaType["linkId"]> {
+  const { db, data } = arg;
 
   const id = nanoid(10);
 
@@ -23,11 +30,12 @@ export async function createLink(
   return result.linkId;
 }
 
-export async function getMyLink(
-  linkId: LinkSchemaType["linkId"],
-  accountId: LinkSchemaType["accountId"]
-): Promise<LinkSchemaType | null> {
-  const db = getDb();
+export async function getMyLink(args: {
+  db: Db;
+  linkId: LinkSchemaType["linkId"];
+  accountId: LinkSchemaType["accountId"];
+}): Promise<LinkSchemaType | null> {
+  const { db, linkId, accountId } = args;
 
   const link = await db
     .select()
@@ -49,14 +57,13 @@ export async function getMyLink(
 }
 
 export async function getMyLinks(args: {
+  db: Db;
   accountId: LinkSchemaType["accountId"];
   createdBefore?: string;
   offset?: number;
   limit?: number;
 }) {
-  const { accountId, offset = 0, limit = 20 } = args;
-
-  const db = getDb();
+  const { db, accountId, offset = 0, limit = 20 } = args;
 
   const filters = [eq(links.accountId, accountId)];
 
@@ -86,17 +93,19 @@ export async function getMyLinks(args: {
   }));
 }
 
-export async function updateLinkDestinations(
-    linkId: string,
-    destinations: DestinationsSchemaType,
-  ) {
-    const destinationsParsed = destinationsSchema.parse(destinations);
-    const db = getDb();
-    await db
-      .update(links)
-      .set({
-        destinations: JSON.stringify(destinationsParsed),
-        updated: new Date().toISOString(),
-      })
-      .where(eq(links.linkId, linkId));
-  }
+export async function updateLinkDestinations(args: {
+  db: Db;
+  linkId: string;
+  destinations: DestinationsSchemaType;
+}) {
+  const { db, linkId, destinations } = args;
+  const destinationsParsed = destinationsSchema.parse(destinations);
+
+  await db
+    .update(links)
+    .set({
+      destinations: JSON.stringify(destinationsParsed),
+      updated: new Date().toISOString(),
+    })
+    .where(eq(links.linkId, linkId));
+}
