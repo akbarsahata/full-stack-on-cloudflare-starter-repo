@@ -23,6 +23,7 @@ export const linksTrpcRoutes = t.router({
     )
     .query(async ({ ctx }) => {
       return getMyLinks({
+        db: ctx.db,
         accountId: ctx.userInfo.userId,
         offset: 0,
       });
@@ -30,7 +31,10 @@ export const linksTrpcRoutes = t.router({
   createLink: t.procedure
     .input(createLinkSchema)
     .mutation(async ({ ctx, input }) => {
-      return createLink({ ...input, accountId: ctx.userInfo.userId });
+      return createLink({
+        db: ctx.db,
+        data: { ...input, accountId: ctx.userInfo.userId },
+      });
     }),
   updateLinkName: t.procedure
     .input(
@@ -49,7 +53,11 @@ export const linksTrpcRoutes = t.router({
       })
     )
     .query(async ({ ctx, input }) => {
-      const data = await getMyLink(input.linkId, ctx.userInfo.userId);
+      const data = await getMyLink({
+        db: ctx.db,
+        accountId: ctx.userInfo.userId,
+        linkId: input.linkId,
+      });
       if (!data) throw new TRPCError({ code: "NOT_FOUND" });
       return data;
     }),
@@ -60,8 +68,12 @@ export const linksTrpcRoutes = t.router({
         destinations: destinationsSchema,
       })
     )
-    .mutation(async ({ input }) => {
-      return updateLinkDestinations(input.linkId, input.destinations);
+    .mutation(async ({ ctx, input }) => {
+      return updateLinkDestinations({
+        db: ctx.db,
+        linkId: input.linkId,
+        destinations: input.destinations,
+      });
     }),
   activeLinks: t.procedure.query(async () => {
     return ACTIVE_LINKS_LAST_HOUR;
