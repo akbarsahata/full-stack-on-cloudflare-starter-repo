@@ -35,6 +35,7 @@
 			{
 				"binding": "QUEUE",
 				"queue": "smart-links-data-queue-stage",
+				"remote": true
 			}
 		]
 	}
