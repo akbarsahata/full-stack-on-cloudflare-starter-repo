@@ -52,8 +52,8 @@ importers:
         specifier: ~3.2.0
         version: 3.2.4(@types/node@22.15.33)(jiti@2.4.2)(jsdom@26.1.0)(lightningcss@1.30.1)(terser@5.43.1)(tsx@4.20.3)(yaml@2.8.0)
       wrangler:
-        specifier: ^4.35.0
-        version: 4.35.0
+        specifier: ^4.36.0
+        version: 4.36.0
 
   apps/user-application:
     dependencies:
@@ -1497,8 +1497,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jridgewell/trace-mapping@0.3.30':
-    resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+  '@jridgewell/trace-mapping@0.3.31':
+    resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
@@ -3534,8 +3534,8 @@ packages:
     engines: {node: '>=18.0.0'}
     hasBin: true
 
-  miniflare@4.20250906.0:
-    resolution: {integrity: sha512-T/RWn1sa0ien80s6NjU+Un/tj12gR6wqScZoiLeMJDD4/fK0UXfnbWXJDubnUED8Xjm7RPQ5ESYdE+mhPmMtuQ==}
+  miniflare@4.20250906.1:
+    resolution: {integrity: sha512-yuPHog7j+GKHtRaKKF3Mpwvb5SVtvmkQpY/f9Ue0xhG/fYQcaxTKVO6RAB1pUN1jSyvmDOxVEAFFVoni8GYl3g==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4211,8 +4211,8 @@ packages:
     resolution: {integrity: sha512-heTSIac3iLhsmZhUCjyS3JQEkZELateufzZuBaVM5RHXdSBMb1LPMQf5x+FH7qjsZYDP0ttAc3nnVpUB+wYbOg==}
     engines: {node: '>=20.18.1'}
 
-  undici@7.16.0:
-    resolution: {integrity: sha512-QEg3HPMll0o3t2ourKwOeUAZ159Kn9mx5pnzHRQO8+Wixmh88YdZRiIwat0iNzNNXn0yoEtXJqFpyW7eM8BV7g==}
+  undici@7.14.0:
+    resolution: {integrity: sha512-Vqs8HTzjpQXZeXdpsfChQTlafcMQaaIwnGwLam1wudSSjlJeQ3bw1j+TLPePgrCnCpUXx7Ba5Pdpf5OBih62NQ==}
     engines: {node: '>=20.18.1'}
 
   unenv@2.0.0-rc.17:
@@ -4470,8 +4470,8 @@ packages:
       '@cloudflare/workers-types':
         optional: true
 
-  wrangler@4.35.0:
-    resolution: {integrity: sha512-HbyXtbrh4Fi3mU8ussY85tVdQ74qpVS1vctUgaPc+bPrXBTqfDLkZ6VRtHAVF/eBhz4SFmhJtCQpN1caY2Ak8A==}
+  wrangler@4.36.0:
+    resolution: {integrity: sha512-J1sZh7ePy7BtzvIyt9ufiL6aQOW6OE0VEi9YJiyXOuaXDKrR7V5HJBTsraNdFDqXgi30mYGGBVs0mgZHGRhTBA==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
@@ -5479,7 +5479,7 @@ snapshots:
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
     optional: true
 
   '@jridgewell/gen-mapping@0.3.8':
@@ -5495,7 +5495,7 @@ snapshots:
   '@jridgewell/source-map@0.3.11':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.13
-      '@jridgewell/trace-mapping': 0.3.30
+      '@jridgewell/trace-mapping': 0.3.31
     optional: true
 
   '@jridgewell/sourcemap-codec@1.5.0': {}
@@ -5510,7 +5510,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jridgewell/trace-mapping@0.3.30':
+  '@jridgewell/trace-mapping@0.3.31':
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
@@ -7551,7 +7551,7 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  miniflare@4.20250906.0:
+  miniflare@4.20250906.1:
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       acorn: 8.14.0
@@ -7560,7 +7560,7 @@ snapshots:
       glob-to-regexp: 0.4.1
       sharp: 0.33.5
       stoppable: 1.1.0
-      undici: 7.16.0
+      undici: 7.14.0
       workerd: 1.20250906.0
       ws: 8.18.0
       youch: 4.1.0-beta.10
@@ -8270,7 +8270,7 @@ snapshots:
 
   undici@7.11.0: {}
 
-  undici@7.16.0: {}
+  undici@7.14.0: {}
 
   unenv@2.0.0-rc.17:
     dependencies:
@@ -8548,13 +8548,13 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  wrangler@4.35.0:
+  wrangler@4.36.0:
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.0
       '@cloudflare/unenv-preset': 2.7.3(unenv@2.0.0-rc.21)(workerd@1.20250906.0)
       blake3-wasm: 2.1.5
       esbuild: 0.25.4
-      miniflare: 4.20250906.0
+      miniflare: 4.20250906.1
       path-to-regexp: 6.3.0
       unenv: 2.0.0-rc.21
       workerd: 1.20250906.0
