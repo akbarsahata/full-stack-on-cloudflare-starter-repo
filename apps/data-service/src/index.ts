@@ -11,4 +11,10 @@ export default class DataService extends WorkerEntrypoint<Env> {
 	fetch(request: Request) {
 		return app.fetch(request, this.env, this.ctx);
 	}
+	queue(batch: MessageBatch<unknown>): void | Promise<void> {
+		batch.messages.forEach((message) => {
+			console.log('Message:', message);
+		});
+		return Promise.resolve();
+	}
 }
