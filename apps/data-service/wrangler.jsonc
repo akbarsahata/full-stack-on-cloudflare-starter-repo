@@ -15,14 +15,14 @@
 		{
 			"binding": "DB",
 			"database_id": "a1d2e926-dd9b-4882-bde5-96210b0b8ad3",
-			"experimental_remote": true,
+			"remote": true,
 		},
 	],
 	"kv_namespaces": [
 		{
 			"binding": "CACHE",
 			"id": "ac54649b20ec46eabb88103e0831b538",
-			"experimental_remote": true,
+			"remote": true,
 		},
 	],
 		"queues": {
