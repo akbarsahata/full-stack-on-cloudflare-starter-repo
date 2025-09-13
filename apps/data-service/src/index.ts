@@ -13,7 +13,7 @@ export default class DataService extends WorkerEntrypoint<Env> {
 	}
 	queue(batch: MessageBatch<unknown>): void | Promise<void> {
 		batch.messages.forEach((message) => {
-			console.log('Message:', message);
+			console.log('Message:', JSON.stringify(message));
 		});
 		return Promise.resolve();
 	}
