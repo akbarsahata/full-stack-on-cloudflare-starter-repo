@@ -20,8 +20,22 @@ export const LinkClickMessageSchema = BaseQueueMessageSchema.extend({
   }),
 });
 
+export const LinkShareMessageSchema = BaseQueueMessageSchema.extend({
+  type: z.literal("LINK_SHARE"),
+  data: z.object({
+    id: z.string(),
+    accountId: z.string(),
+    sharedTo: z.string(),
+    sharedFrom: z.string().optional(),
+    platform: z.string().optional(),
+    timestamp: z.string(),
+  }),
+});
+
+// Union of all queue message schemas
 export const QueueMessageSchema = z.discriminatedUnion("type", [
   LinkClickMessageSchema,
+  LinkShareMessageSchema,
 ]);
 
 export type LinkClickMessageType = z.infer<typeof LinkClickMessageSchema>;
