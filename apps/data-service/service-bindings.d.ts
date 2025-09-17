@@ -1,3 +1,7 @@
-import { Db } from '@repo/data-ops/database'
+export interface DestinationStatusEvaluationParams {
+	linkId: string;
+	destinationUrl: string;
+	accountId: string;
+}
 
-interface Env extends Cloudflare.Env {}
+export interface Env extends Cloudflare.Env {}

@@ -46,5 +46,8 @@
 			"class_name": "DestinationEvaluationWorkflow",
 			"remote": true
 		}
-	]
+	],
+	"browser": {
+		"binding": "VIRTUAL_BROWSER",
+	},
 }
